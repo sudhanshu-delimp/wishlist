@@ -1,10 +1,7 @@
 <?php
 
-if(!is_user_logged_in()){
-    exit();
-}
-
-$classname = $wishtext = '';
+if(is_user_logged_in()){
+    $classname = $wishtext = '';
 if (!is_wishlist_exists($attributes['product_id'])) {
     $classname = 'fa-regular';
     $wishtext = 'Add to Wishlist';
@@ -29,3 +26,4 @@ if ( WC()->cart && ! WC()->cart->is_empty() ) {
 <div class="<?php echo $attributes['class'].' '.$custom_class; ?>">
     <a class="add_wishlist_btn <?php echo $anchorclassname; ?>" data-product-id="<?php echo $attributes['product_id']; ?>" data-brand-id="<?php echo $attributes['brand_id']; ?>"><i class="<?php echo $classname; ?> fa-heart"></i><?php echo $wishtext; ?></a>
 </div>
+<?php } ?>
